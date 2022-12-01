@@ -1,0 +1,136 @@
+-------------
+//JSX
+-------------
+const App = () => {
+  const name = null;
+  const isNameShowing = true;
+
+  return (
+    <div className="App">
+      <h1>Hello {isNameShowing ? name : "someone"}!</h1>
+      {name ? (
+        <>
+          <h1>{name}</h1>
+        </>
+      ) : (
+        <>
+          <h1>There is no name</h1>
+        </>
+      )}
+    </div>
+  );
+};
+
+-------------
+//COMPONENTS
+-------------
+const Person = () => {
+  const name = "John";
+  const lastName = "Doe";
+  const age = 30;
+
+  return (
+    <div>
+      <h1>
+        Name: {name} <br />
+        Last Name: {lastName} <br />
+        Age: {age}
+      </h1>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="App">
+      <Person />
+    </div>
+  );
+};
+
+------------
+//PROPS
+------------
+const Person = (props) => {
+  return (
+    <div>
+      <h1>
+        Name: {props.name} <br />
+        Last Name: {props.lastName} <br />
+        Age: {props.age}
+      </h1>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="App">
+      <Person name={"John"} lastName={"Doe"} age={25} />
+      <Person />
+      <Person />
+    </div>
+  );
+};
+
+---------
+STATE
+---------
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div className="App">
+      <button>-</button>
+      <h1>{counter}</h1>
+      <button>+</button>
+    </div>
+  );
+};
+
+---------
+EVENT
+---------
+import { useState } from "react"; //useState is a React "Hook"
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div className="App">
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>
+        -
+      </button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>
+        +
+      </button>
+    </div>
+  );
+};
+
+-------------------------------
+useEffect and Dependency Array
+------------------------------
+
+import { useEffect, useState } from "react"; //useEffect is a React "Hook"
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    setCounter(100);
+  }, []);
+
+  return (
+    <div className="App">
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>
+        -
+      </button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>
+        +
+      </button>
+    </div>
+  );
+};
