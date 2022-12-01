@@ -1,3 +1,5 @@
+A simple app that lists movies and returns a list of movies based on search terms.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
